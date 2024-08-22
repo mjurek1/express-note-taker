@@ -7,7 +7,7 @@ router.get('/api/notes', async (req, res) => {
     res.json(dbJson);
 });
 
-router.post('/api/notes', (req,res) => {
+router.post('/api/notes', (req, res) => {
     const dbJson = JSON.parse(fs.readFileSync("db/db.json", "utf-8"));
     const newFeedback = {
         title: req.body.title,
@@ -18,3 +18,5 @@ router.post('/api/notes', (req,res) => {
     fs.writeFileSync("db/db.json",JSON.stringify(dbJson));
     res.json(dbJson);
 });
+
+module.exports = router;
